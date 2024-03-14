@@ -9,6 +9,7 @@ The primary purpose of these tools is to provide template code for import IBM i 
 * Destination library must have automatic journaling enabled (via STRJRNLIB). Process will fail if not
 * Only first sheet of an excel spreadsheet is converted, all other sheets are ignored. Parameter to allow user to specify sheet number will be added in 0.02
 * All character fields are interpreted as CLOB fields, as such, there are limitations to viewing data in 5250 based tools.
+* Requires user/pass to specified in plain text in the python file. This is due to be moved to the command in next version.
 
 ## Setup
 1. Install the open source enviroment on the IBM
@@ -17,6 +18,7 @@ The primary purpose of these tools is to provide template code for import IBM i 
 4. Download IBM i WIP variant of python module sql-alchemy (https://github.com/IBM/sqlalchemy-ibmi)
 5. Copy CLP and CMD source files to CNVXLSDB2 library and compile as normal
 6. Copy python script to /opt/cnvxlsdb2. (Any folder or naming changes will have to be relected in CLP)
+7. Edit cnvxlsdb2.py, and update userID, passWD, rdbEntry fields approriate for you server. (see limitations notes)
 
 ## Execution Example
 The following example takes an Excel spreadsheet names "supplier.xlsx", stored in the share "accounts" on remote server "FileSrv1", and imports into table ACCDTA/SUPPLIER.
